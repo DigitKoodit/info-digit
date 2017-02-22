@@ -36,52 +36,22 @@ class Events extends Component {
         );
     }
 
-    updateEvents(_parent) {
-
-        require('google-client-api')(function (gapi) {
-
-            gapi.client.load('calendar', 'v3', function () {
-
-                gapi.client.init({
-                    apiKey: 'AIzaSyAgVkXygz_KbPPGJ_0FECFFzKBsD7ph-Co',
-                    discoveryDocs: DISCOVERY_DOCS
-                });
-
-                gapi.client.calendar.events.list({
-                    'calendarId': CALENDAR_ID,
-                    'timeMin': (new Date()).toISOString(),
-                    'maxResults': 10,
-                    'singleEvents': true,
-                    'orderBy': 'startTime'
-                }).then(function (response) {
-
-                    showEvents(response.result.items);
-                });
+    updateEvents() {
+        $.ajax({ url: '/calendar' })
+            .done((data) => {
+                console.log("AJAX response received");
+                this.state.eventsSimple = data;
+            })
+            .fail(() => {
+                console.log("AJAX response failed");
             });
-        });
-
-        function showEvents(eventList) {
-
-            var local = [];
-
-            for (var i = 0; i < eventList.length; i++) {
-                var time = eventList[i].start.date || eventList[i].start.dateTime;
-                var name = eventList[i].summary;
-                local.push({
-                    name: name,
-                    start: time
-                });
-            }
-
-            _parent.setState({ eventsSimple: local });
-        }
 
     }
 
     componentDidMount() {
         this.updateEvents(this);
         this.timerID = setInterval(
-            () => this.updateEvents(this),
+            () => this.updateEvents(),
             10000
         );
     }
