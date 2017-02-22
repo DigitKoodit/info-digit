@@ -14,7 +14,8 @@
     "react": "^15.4.2",
     "react-big-calendar": "^0.12.3",
     "react-dom": "^15.4.2",
-    "react-intl": "^2.2.3"
+    "react-intl": "^2.2.3",
+    "swig": "^1.4.2"
   },
   "scripts": {
     "start": "react-scripts start",

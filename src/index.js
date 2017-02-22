@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { IntlProvider , addLocaleData} from 'react-intl';
 import fi from 'react-intl/locale-data/fi';
 import App from './App';
-import Clock from './Clock';
 import './index.css';
 
 addLocaleData(fi);
