@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 import './Events.css';
-
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-var CALENDAR_ID = "51n4vtv46paes63es2ddea3vgg@group.calendar.google.com";
 
 class Events extends Component {
 
@@ -37,22 +35,18 @@ class Events extends Component {
     }
 
     updateEvents() {
-        $.ajax({ url: '/calendar' })
-            .done((data) => {
-                console.log("AJAX response received");
-                this.state.eventsSimple = data;
+         Axios.get("./calendar/getEvents").then(function(response) {
+            this.setState({
+                eventsSimple: response.data
             })
-            .fail(() => {
-                console.log("AJAX response failed");
-            });
-
+         })
     }
 
     componentDidMount() {
         this.updateEvents(this);
         this.timerID = setInterval(
             () => this.updateEvents(),
-            10000
+            100
         );
     }
 

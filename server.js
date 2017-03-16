@@ -1,13 +1,12 @@
 var express = require('express')
 var app = express()
 
-// Require api
-require('./api/map')(app);
 
 app.use(express.static('build'))
 
 app.set('port',process.env.PORT || 3000);
 
+// Require api
 require('./api/calendar')(app);
 
 app.listen(app.get('port'), function () {

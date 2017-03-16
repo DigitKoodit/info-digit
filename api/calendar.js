@@ -3,9 +3,12 @@ var google = require('googleapis');
 
 module.exports = function (app) {
 
-    var API_KEY = 'AIzaSyAgVkXygz_KbPPGJ_0FECFFzKBsD7ph-Co';
 
-    app.get('/calendar', function (req, res) {
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    var CALENDAR_ID = "51n4vtv46paes63es2ddea3vgg@group.calendar.google.com";
+    var API_KEY = require('./client_secret.js');
+
+    app.get('/calendar/getEvents', function (req, res) {
 
         console.log("----------------------------------------------");
         console.info('server got a request');

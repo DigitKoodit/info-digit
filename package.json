@@ -9,6 +9,7 @@
     "style-loader": "^0.13.1"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "express": "^4.14.1",
     "google-auth-library": "^0.10.0",
     "google-client-api": "^1.0.4",
