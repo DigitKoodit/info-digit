@@ -1,5 +1,23 @@
+html, body, #root, .App {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
     text-align: center;
+}
+
+.vertical-flex-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.horizontal-flex-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
