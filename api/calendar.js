@@ -20,7 +20,7 @@ module.exports = function (app) {
             shortUrl: 'http://goo.gl/xKbRu3'
         };
 
-        // get the long url of a shortened url 
+        // get the long url of a shortened url
         urlshortener.url.get(params, function (err, response) {
             if (err) {
                 console.log('Encountered error', err);

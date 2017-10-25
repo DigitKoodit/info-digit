@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Link } from 'react-router'
 
 import { IntlProvider , addLocaleData} from 'react-intl';
@@ -15,10 +15,10 @@ addLocaleData(fi);
 ReactDOM.render(
   <IntlProvider locale="fi">
     <BrowserRouter>
-      <div>
-        <Route exact to="/" component={App}/>
-        <Route exact to="/admin" component={Admin}/>
-      </div>
+      <Switch>
+        <Route exact path="/admin" component={Admin}/>
+        <Route exact path="/" component={App}/>
+      </Switch>
     </BrowserRouter>
   </IntlProvider>,
   document.getElementById('root')

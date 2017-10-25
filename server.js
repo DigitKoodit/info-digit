@@ -20,6 +20,10 @@ fs.readdirSync(__dirname + '/models').forEach(function(filename) {
 	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 })
 
+// app.get('/admin', function(req, res) {
+//   res.redirect('/')
+// })
+
 app.get('/meetings', function(req, res) {
 	mongoose.model('meeting').find({}, function(err, meetings) {
 		res.status(200).send(meetings)
@@ -36,7 +40,10 @@ app.post('/meetings', function(req, res) {
 })
 // Require apis
 require('./api/calendar')(app);
-// require('./api/meetings')(app)
+// require('./api/meetings')(app
+app.get('*', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html')
+})
 
 app.listen(app.get('port'), function () {
   console.log('Server listening!')

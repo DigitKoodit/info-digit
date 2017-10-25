@@ -31410,10 +31410,10 @@ _reactDom2.default.render(_react2.default.createElement(
     _reactRouterDom.BrowserRouter,
     null,
     _react2.default.createElement(
-      'div',
+      _reactRouterDom.Switch,
       null,
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, to: '/', component: _App2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, to: '/admin', component: _Admin2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/admin', component: _Admin2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _App2.default })
     )
   )
 ), document.getElementById('root'));
