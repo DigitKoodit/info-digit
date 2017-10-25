@@ -9,37 +9,59 @@ html, body, #root, .App, .FillParent {
 .App {
     display: grid;
     grid-template-areas:
-    "header header header header"
-    "countdown countdown countdown countdown"
-    "meetings meetings calendar calendar";
+    "logo date meetings calendar"
+    "countdown countdown meetings calendar";
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 120px 30px 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: #00272b;
+    grid-gap: 1em;
 }
 
-.header {
-  grid-area: header;
+.date {
+  background: linear-gradient(#8bffe8, #1e3631);
+  color: white;
   display: flex;
-  justify-content: space-between;
-  padding: 1em;
-  font-size: 2em;
+  flex-direction: column;
+  font-size: 2.5em;
   align-items: center;
-  background-color: #f1d6b8;
+  justify-content: center;
+}
+
+.logocontainer {
+  background: linear-gradient(#fdff8b, #36341e);
+  color: white;
+  grid-area: logo;
+  display: flex;
+  padding: 1em;
+}
+
+.logo {
+  flex: 1;
+  background-image: url("./digit_logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
 }
 
 .countdown {
-  grid-area: countdown;
-  background-color: #333;
+  background: linear-gradient(#ff8bbb, #361e2c);
+  display: flex;
   color: white;
-  text-align: center;
+  grid-area: countdown;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
 }
 
 .meetings {
+  background: linear-gradient(#8bb0ff, #1e2436);
+  color: white;
   grid-area: meetings;
   display: flex;
-  background-color: '#f9f7f3'
 }
 
 .calendar {
+  background: linear-gradient(#ff8b8b, #361e1e);
+  color: white;
   grid-area: calendar;
-  background-color: '#f9f7f3'
 }

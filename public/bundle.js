@@ -48931,8 +48931,12 @@ var App = function (_Component) {
         { className: 'App' },
         _react2.default.createElement(
           'div',
-          { className: 'header' },
-          _react2.default.createElement('img', { src: _digit_logo2.default, alt: 'logo', style: { height: 100 } }),
+          { className: 'logocontainer' },
+          _react2.default.createElement('div', { className: 'logo' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'date' },
           _react2.default.createElement(_Date2.default, null),
           _react2.default.createElement(_Clock2.default, null)
         ),
@@ -48945,7 +48949,8 @@ var App = function (_Component) {
           'div',
           { className: 'meetings' },
           _react2.default.createElement(_Meetings2.default, null)
-        )
+        ),
+        _react2.default.createElement('div', { className: 'calendar' })
       );
     }
   }]);
@@ -49001,7 +49006,7 @@ exports = module.exports = __webpack_require__(43)(undefined);
 
 
 // module
-exports.push([module.i, "html, body, #root, .App, .FillParent {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\n\n.App {\n    display: grid;\n    grid-template-areas:\n    \"header header header header\"\n    \"countdown countdown countdown countdown\"\n    \"meetings meetings calendar calendar\";\n    grid-template-columns: 1fr 1fr 1fr 1fr;\n    grid-template-rows: 120px 30px 1fr;\n}\n\n.header {\n  grid-area: header;\n  display: flex;\n  justify-content: space-between;\n  padding: 1em;\n  font-size: 2em;\n  align-items: center;\n  background-color: #f1d6b8;\n}\n\n.countdown {\n  grid-area: countdown;\n  background-color: #333;\n  color: white;\n  text-align: center;\n}\n\n.meetings {\n  grid-area: meetings;\n  display: flex;\n  background-color: '#f9f7f3'\n}\n\n.calendar {\n  grid-area: calendar;\n  background-color: '#f9f7f3'\n}\n", ""]);
+exports.push([module.i, "html, body, #root, .App, .FillParent {\r\n  width: 100%;\r\n  height: 100%;\r\n  margin: 0;\r\n  padding: 0;\r\n  overflow: hidden;\r\n}\r\n\r\n.App {\r\n    display: grid;\r\n    grid-template-areas:\r\n    \"logo date meetings calendar\"\r\n    \"countdown countdown meetings calendar\";\r\n    grid-template-columns: 1fr 1fr 1fr 1fr;\r\n    grid-template-rows: 1fr 1fr;\r\n    background-color: #00272b;\r\n    grid-gap: 1em;\r\n}\r\n\r\n.date {\r\n  background: linear-gradient(#8bffe8, #1e3631);\r\n  color: white;\r\n  display: flex;\r\n  flex-direction: column;\r\n  font-size: 2.5em;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.logocontainer {\r\n  background: linear-gradient(#fdff8b, #36341e);\r\n  color: white;\r\n  grid-area: logo;\r\n  display: flex;\r\n  padding: 1em;\r\n}\r\n\r\n.logo {\r\n  flex: 1;\r\n  background-image: url(" + __webpack_require__(384) + ");\r\n  background-repeat: no-repeat;\r\n  background-size: contain;\r\n  background-position: 50% 50%;\r\n}\r\n\r\n.countdown {\r\n  background: linear-gradient(#ff8bbb, #361e2c);\r\n  display: flex;\r\n  color: white;\r\n  grid-area: countdown;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: 1.5em;\r\n}\r\n\r\n.meetings {\r\n  background: linear-gradient(#8bb0ff, #1e2436);\r\n  color: white;\r\n  grid-area: meetings;\r\n  display: flex;\r\n}\r\n\r\n.calendar {\r\n  background: linear-gradient(#ff8b8b, #361e1e);\r\n  color: white;\r\n  grid-area: calendar;\r\n}\r\n", ""]);
 
 // exports
 
@@ -49509,7 +49514,7 @@ exports = module.exports = __webpack_require__(43)(undefined);
 
 
 // module
-exports.push([module.i, ".time {\n    \n}", ""]);
+exports.push([module.i, ".time {\r\n    \r\n}", ""]);
 
 // exports
 
@@ -50628,33 +50633,57 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Admin = function (_Component) {
   _inherits(Admin, _Component);
 
-  function Admin() {
+  function Admin(props) {
     _classCallCheck(this, Admin);
 
-    return _possibleConstructorReturn(this, (Admin.__proto__ || Object.getPrototypeOf(Admin)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Admin.__proto__ || Object.getPrototypeOf(Admin)).call(this, props));
+
+    _this.login = _this.login.bind(_this);
+
+    _this.state = {};
+    return _this;
   }
 
   _createClass(Admin, [{
-    key: "render",
+    key: 'login',
+    value: function login(e) {
+      e.preventDefault();
+      if (this.state.password && this.state.username) {
+        this.setState({ logged: _react2.default.createElement(
+            'div',
+            null,
+            'Hello'
+          ) });
+      }
+    }
+  }, {
+    key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
         _react2.default.createElement(
-          "h3",
+          'h3',
           null,
-          "Info screen admin login"
+          'Info screen admin login'
         ),
         _react2.default.createElement(
-          "form",
-          null,
-          _react2.default.createElement("input", { placeholder: "username" }),
-          _react2.default.createElement("input", { placeholder: "password" }),
+          'form',
+          { onSubmit: this.login },
+          _react2.default.createElement('input', { placeholder: 'username', onChange: function onChange(username) {
+              return _this2.setState({ username: username });
+            } }),
+          _react2.default.createElement('input', { placeholder: 'password', onChange: function onChange(password) {
+              return _this2.setState({ password: password });
+            } }),
           _react2.default.createElement(
-            "button",
+            'button',
             null,
-            "Login"
-          )
+            'Login'
+          ),
+          this.state.logged
         )
       );
     }
@@ -50705,7 +50734,7 @@ exports = module.exports = __webpack_require__(43)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Roboto', sans-serif;\n  font-weight: bold;\n}\n", ""]);
+exports.push([module.i, "body {\r\n  margin: 0;\r\n  padding: 0;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-weight: bold;\r\n}\r\n", ""]);
 
 // exports
 

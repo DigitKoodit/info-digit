@@ -11,8 +11,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="header">
-          <img src={logo} alt="logo" style={{height: 100}}/>
+        <div className="logocontainer">
+          <div className="logo"/>
+          {/* <img src={logo} alt="logo" style={{minHeight: '100%', minWidth: '100%', height: 'auto', width: 'auto', margin: 'auto'}}/> */}
+        </div>
+        <div className="date">
           <Date />
           <Clock />
         </div>
@@ -21,6 +24,8 @@ class App extends Component {
         </div>
         <div className="meetings">
           <Meetings />
+        </div>
+        <div className="calendar">
         </div>
       </div>
     );
