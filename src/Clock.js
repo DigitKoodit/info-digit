@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedTime } from 'react-intl';
+import moment from 'moment'
 import './Clock.css';
 
 class Clock extends Component {
@@ -10,7 +10,7 @@ class Clock extends Component {
 
     render() {
         return (
-            <FormattedTime value={this.state.date} />
+            <span>{moment().format('H:mm')}</span>
         );
     }
 

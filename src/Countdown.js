@@ -26,9 +26,9 @@ class Countdown extends Component {
 
     render() {
         return (
-            <div>
-              {moment(this.props.date.valueOf()-this.state.now.valueOf()).format('M [kuukautta] D [päivää] h [tuntia] m [minuuttia] s [sekuntia]')}
-            </div>
+            <span>
+              {'Wappuun on ' + moment(this.props.date.valueOf()-this.state.now.valueOf()).format('M [kuukautta] D [päivää] h [tuntia] m [minuuttia] s [sekuntia]')}
+		  </span>
         );
     }
 }
