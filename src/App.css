@@ -7,14 +7,21 @@ html, body, #root, .App, .FillParent {
 }
 
 .App {
-    display: grid;
-    grid-template-areas:
-    "logo date meetings calendar"
-    "countdown countdown meetings calendar";
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    background-color: #00272b;
-    grid-gap: 1em;
+  background-color: #00272b;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  margin: 1em;
+  flex: 1;
+  display: grid;
+  grid-template-areas:
+  "logo date meetings calendar"
+  "countdown countdown meetings calendar";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1em;
 }
 
 .date {
@@ -25,6 +32,7 @@ html, body, #root, .App, .FillParent {
   font-size: 2.5em;
   align-items: center;
   justify-content: center;
+  border-radius: 20px;
 }
 
 .logocontainer {
@@ -33,6 +41,7 @@ html, body, #root, .App, .FillParent {
   grid-area: logo;
   display: flex;
   padding: 1em;
+  border-radius: 20px;
 }
 
 .logo {
@@ -50,7 +59,9 @@ html, body, #root, .App, .FillParent {
   grid-area: countdown;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-size: 1.5em;
+  border-radius: 20px;
 }
 
 .meetings {
@@ -58,10 +69,12 @@ html, body, #root, .App, .FillParent {
   color: white;
   grid-area: meetings;
   display: flex;
+  border-radius: 20px;
 }
 
 .calendar {
   background: linear-gradient(#ff8b8b, #361e1e);
   color: white;
   grid-area: calendar;
+  border-radius: 20px;
 }

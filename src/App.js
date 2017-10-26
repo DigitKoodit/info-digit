@@ -11,21 +11,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="logocontainer">
-          <div className="logo"/>
-          {/* <img src={logo} alt="logo" style={{minHeight: '100%', minWidth: '100%', height: 'auto', width: 'auto', margin: 'auto'}}/> */}
-        </div>
-        <div className="date">
-          <Date />
-          <Clock />
-        </div>
-        <div className="countdown">
-          <Countdown date={moment('2018-5-1')} />
-        </div>
-        <div className="meetings">
-          <Meetings />
-        </div>
-        <div className="calendar">
+        <div className="container">
+          <div className="logocontainer">
+            <div className="logo"/>
+            {/* <img src={logo} alt="logo" style={{minHeight: '100%', minWidth: '100%', height: 'auto', width: 'auto', margin: 'auto'}}/> */}
+          </div>
+          <div className="date">
+            <Date />
+            <Clock />
+          </div>
+          <div className="countdown">
+            <Countdown date={moment('2018-5-1')} />
+          </div>
+          <div className="meetings">
+            <Meetings />
+          </div>
+          <div className="calendar">
+          </div>
         </div>
       </div>
     );
