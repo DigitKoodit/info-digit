@@ -26,7 +26,11 @@ fs.readdirSync(__dirname + '/models').forEach(function(filename) {
 
 app.get('/meetings', function(req, res) {
 	mongoose.model('meeting').find({}, function(err, meetings) {
-		res.status(200).send(meetings)
+		if(meetings) {
+			res.status(200).send(meetings)
+		} else {
+			res.status(500).send(err)
+		}
 	})
 })
 
@@ -37,6 +41,15 @@ app.post('/meetings', function(req, res) {
 	}
 	mongoose.connection.collection('meetings').insert(meeting)
 	res.status(200).send('Added meeting')
+})
+
+app.delete('/meetings/:id', function(req, res) {
+	console.log(req.params.id)
+	mongoose.model('meeting').findByIdAndRemove(req.params.id, err => console.log(err))
+	.then(() => {
+		res.status(200).send('Removed item')
+	})
+	
 })
 // Require apis
 require('./api/calendar')(app);

@@ -1,0 +1,26 @@
+button, .submitbutton {
+    background-color: #005961;
+    color: white;
+    border: solid 2px;
+    border-radius: 2px;
+}
+
+input {
+    border: solid 2px;
+    border-color: white;
+    border-radius: 2px;
+    margin: 5px;
+}
+
+.logincontainer, form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logincontainer {
+    background-color: #00272b;
+    color: white;
+    flex: 1;
+}
